@@ -65,16 +65,33 @@ def check_site_status(site):
         print(f"{Fore.RED}Ocorreu um erro ao verificar o status do site {site}.")
 
 # Function to check if the site is UDP or TCP
-def check_site_protocol(site):
-try:
-# Implemente aqui a verificação se o site é UDP ou TCP
-ip = socket.gethostbyname(site)
-socket.create_connection((ip, 80), timeout=1)
-print(f"O site {site} é TCP.")
-except socket.gaierror:
-print(f"{Fore.RED}Não foi possível encontrar o IP para o site {site}. O site pode estar fora do ar ou não existe.")
-except socket.timeout:
-print(f"{Fore.RED}O site {site} não respondeu em um tempo razoável.")
+def verificar_udp_tcp(site):
+    try:
+        print(f"\nVerificando se o site {site} utiliza UDP ou TCP...")
+        
+        # Verificando o protocolo utilizado pelas portas 80 (HTTP) e 443 (HTTPS)
+        http_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        http_socket.settimeout(2)
+        http_resultado = http_socket.connect_ex((site, 80))
+
+        https_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        https_socket.settimeout(2)
+        https_resultado = https_socket.connect_ex((site, 443))
+
+        if http_resultado == 0 and https_resultado == 0:
+            print(f"O site {site} pode utilizar tanto UDP quanto TCP.")
+        elif http_resultado == 0:
+            print(f"O site {site} utiliza o protocolo TCP (HTTP).")
+        elif https_resultado == 0:
+            print(f"O site {site} utiliza o protocolo TCP (HTTPS).")
+        else:
+            print(f"Não foi possível determinar se o site {site} utiliza UDP ou TCP.")
+
+    except Exception as e:
+        print(f"Ocorreu um erro durante a verificação de UDP/TCP: {e}")
+
+    input("\nPressione Enter para continuar...")
+    os.system("clear")
 
 # Function to check the open ports of the site
 def check_open_ports(site):
