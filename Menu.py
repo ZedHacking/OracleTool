@@ -154,6 +154,7 @@ while True:
         time.sleep(5)
     elif choice == 7:
         print(f"\n{Fore.GREEN}Salves para: guibppg, nero senka e slowz7{Style.RESET_ALL}")
+        time.sleep(5)
     elif choice == 0:
         print(f"{Fore.RED}Saindo do programa...{Style.RESET_ALL}")
         break
