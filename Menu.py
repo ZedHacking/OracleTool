@@ -139,7 +139,7 @@ while True:
     else:
         print(f"{Fore.RED}Opção inválida. Tente novamente.{Style.RESET_ALL}")
 
-    message_counter += 1  # Increment the message counter
+    message_counter += 4  # Increment the message counter
 
     if message_counter == 4:
         input("\nPressione Enter para continuar...")
