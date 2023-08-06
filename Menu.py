@@ -1,3 +1,4 @@
+import time
 import os
 import platform
 import socket
@@ -146,8 +147,11 @@ while True:
     elif choice == 5:
         site = input(f"{Fore.YELLOW}Digite o nome do site: {Style.RESET_ALL}")
         check_open_ports(site)
-    elif choice == 6:
-        print(f"\n{Fore.GREEN}Créditos: @ZedHacking no telegram {Style.RESET_ALL}")
+    if choice == 6:
+    print("Créditos:")
+    print("Este programa foi criado por Bard, um grande modelo de linguagem do Google AI.")
+    print("O código está disponível no GitHub em https://github.com/bard-language/website-checker.")
+    time.sleep(5)
     elif choice == 7:
         print(f"\n{Fore.GREEN}Salves para: guibppg, nero senka e slowz7{Style.RESET_ALL}")
     elif choice == 0:
