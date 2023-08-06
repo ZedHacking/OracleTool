@@ -65,7 +65,7 @@ def check_site_status(site):
         print(f"{Fore.RED}Ocorreu um erro ao verificar o status do site {site}.")
 
 # Function to check if the site is UDP or TCP
-def verificar_udp_tcp(site):
+def check_site_protocol(site):
     try:
         print(f"\nVerificando se o site {site} utiliza UDP ou TCP...")
         
@@ -85,13 +85,10 @@ def verificar_udp_tcp(site):
         elif https_resultado == 0:
             print(f"O site {site} utiliza o protocolo TCP (HTTPS).")
         else:
-            print(f"Não foi possível determinar se o site {site} utiliza UDP ou TCP.")
-
+            print(f"O site {site} utiliza o protocolo UDP.")
     except Exception as e:
         print(f"Ocorreu um erro durante a verificação de UDP/TCP: {e}")
-
-    input("\nPressione Enter para continuar...")
-    os.system("clear")
+        return None
 
 # Function to check the open ports of the site
 def check_open_ports(site):
