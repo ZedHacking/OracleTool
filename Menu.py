@@ -66,12 +66,15 @@ def check_site_status(site):
 
 # Function to check if the site is UDP or TCP
 def check_site_protocol(site):
-    try:
-        # Implement here the check if the site is UDP or TCP
-        print(f"\n{Fore.MAGENTA}=== Protocolo do site {site} ===")
-        print(f"Verificação do protocolo em andamento...")
-    except:
-        print(f"{Fore.RED}Ocorreu um erro ao verificar o protocolo do site {site}.")
+try:
+# Implemente aqui a verificação se o site é UDP ou TCP
+ip = socket.gethostbyname(site)
+socket.create_connection((ip, 80), timeout=1)
+print(f"O site {site} é TCP.")
+except socket.gaierror:
+print(f"{Fore.RED}Não foi possível encontrar o IP para o site {site}. O site pode estar fora do ar ou não existe.")
+except socket.timeout:
+print(f"{Fore.RED}O site {site} não respondeu em um tempo razoável.")
 
 # Function to check the open ports of the site
 def check_open_ports(site):
