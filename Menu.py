@@ -149,8 +149,8 @@ while True:
         check_open_ports(site)
     if choice == 6:
         print("Créditos:")
-        print("Este programa foi criado por Bard, um grande modelo de linguagem do Google AI.")
-        print("O código está disponível no GitHub em https://github.com/bard-language/website-checker.")
+        print("by @zedhacking no telegram")
+        print("https://t.me/BlackoutTeamOfc")
         time.sleep(5)
     elif choice == 7:
         print(f"\n{Fore.GREEN}Salves para: guibppg, nero senka e slowz7{Style.RESET_ALL}")
