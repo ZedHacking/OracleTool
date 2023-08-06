@@ -139,8 +139,8 @@ while True:
     else:
         print(f"{Fore.RED}Opção inválida. Tente novamente.{Style.RESET_ALL}")
 
-    message_counter += 4  # Increment the message counter
+    message_counter += 5  # Increment the message counter
 
-    if message_counter == 4:
+    if message_counter == 5:
         input("\nPressione Enter para continuar...")
         message_counter = 1  # Reset the message counter after two messages
