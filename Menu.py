@@ -141,6 +141,6 @@ while True:
 
     message_counter += 1  # Increment the message counter
 
-    if message_counter == 2:
+    if message_counter == 3:
         input("\nPressione Enter para continuar...")
         message_counter = 0  # Reset the message counter after two messages
